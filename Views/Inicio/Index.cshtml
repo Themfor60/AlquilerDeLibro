@@ -1,0 +1,39 @@
+﻿@model AlquilerDeLibro.Models.Usuario
+
+<div class="container mt-5">
+    <div class="bg-light p-4 rounded shadow-sm" style="max-width: 500px; margin: 0 auto;">
+        <h1 class="text-center mb-4">Iniciar sesión</h1>
+        <!--Formulario para inicio de secion-->
+        <!--Este codigo es para validaciones de errores, no te atrevas a quitarlo-->
+        @if (ViewBag.ErrorMessage != null)  
+        {
+            <div class="alert alert-danger">@ViewBag.ErrorMessage</div>
+        }
+
+        <form method="POST" asp-action="Login" asp-controller="Inicio"> <!--El motodo de envio y el controlador que esta bregando con el Form-->
+            @Html.AntiForgeryToken()
+            <div class="row mb-3">
+                <div class="col-12">
+                    <input type="email" name="Correo" class="form-control" placeholder="Correo" required>
+                </div>
+            </div>
+            <div class="row mb-3">
+                <div class="col-12">
+                    <input type="password" name="Contrasena" class="form-control" placeholder="Contraseña" required>
+                </div>
+            </div>
+            <div class="row mb-3">
+                <div class="col-12">
+                    <button type="submit" class="btn btn-primary w-100">Ingresar</button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="text-center mt-3">
+        <p>¿Necesitas una cuenta? <a asp-action="Registrarse" asp-controller="Inicio">Registrarse</a></p>
+
+
+    </div>
+    
+
+</div>
